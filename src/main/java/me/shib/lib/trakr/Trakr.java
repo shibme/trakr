@@ -24,17 +24,12 @@ public abstract class Trakr {
     }
 
     public static synchronized Trakr getTrakr(Type type, Connection connection,
-                                              Map<String, TrakrPriority> priorityMap,
-                                              boolean readOnly) {
+                                              Map<String, TrakrPriority> priorityMap) {
         if (type != null) {
             try {
                 Constructor<? extends Trakr> constructor = type.getTrackerClass()
                         .getConstructor(Trakr.Connection.class, Map.class);
-                Trakr trakr = constructor.newInstance(connection, priorityMap);
-                if (readOnly) {
-                    trakr = new DummyTrakr(trakr);
-                }
-                return trakr;
+                return constructor.newInstance(connection, priorityMap);
             } catch (Exception e) {
                 e.printStackTrace();
             }
