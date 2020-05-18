@@ -26,7 +26,7 @@ public final class FreshReleaseTracker extends Trakr {
     private transient Map<String, Status> statusMap;
     private transient Map<String, User> userMap;
 
-    public FreshReleaseTracker(Connection connection, Map<String, TrakrPriority> priorityMap)
+    public FreshReleaseTracker(Connection connection, Map<TrakrPriority, String> priorityMap)
             throws IOException, FreshReleaseException {
         super(connection, priorityMap);
         this.fr = FreshRelease.getInstance(connection.getEndpoint(), connection.getApiKey());

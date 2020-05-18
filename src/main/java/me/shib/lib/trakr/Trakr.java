@@ -11,20 +11,20 @@ import java.util.Map;
 public abstract class Trakr {
 
     private final transient Connection connection;
-    private final transient Map<String, TrakrPriority> priorityMap;
-    private final transient Map<TrakrPriority, String> reversePriorityMap;
+    private final transient Map<TrakrPriority, String> priorityMap;
+    private final transient Map<String, TrakrPriority> reversePriorityMap;
 
-    protected Trakr(Connection connection, Map<String, TrakrPriority> priorityMap) {
+    protected Trakr(Connection connection, Map<TrakrPriority, String> priorityMap) {
         this.connection = connection;
         this.priorityMap = priorityMap;
         this.reversePriorityMap = new HashMap<>();
-        for (String name : priorityMap.keySet()) {
-            reversePriorityMap.put(priorityMap.get(name), name);
+        for (TrakrPriority priority : priorityMap.keySet()) {
+            reversePriorityMap.put(priorityMap.get(priority), priority);
         }
     }
 
     public static synchronized Trakr getTrakr(Type type, Connection connection,
-                                              Map<String, TrakrPriority> priorityMap) {
+                                              Map<TrakrPriority, String> priorityMap) {
         if (type != null) {
             try {
                 Constructor<? extends Trakr> constructor = type.getTrackerClass()
@@ -37,11 +37,11 @@ public abstract class Trakr {
         return null;
     }
 
-    Connection getConnection() {
+    public Connection getConnection() {
         return connection;
     }
 
-    Map<String, TrakrPriority> getPriorityMap() {
+    public Map<TrakrPriority, String> getPriorityMap() {
         return priorityMap;
     }
 
@@ -52,11 +52,11 @@ public abstract class Trakr {
     }
 
     public String getPriorityName(TrakrPriority priority) {
-        return reversePriorityMap.get(priority);
+        return priorityMap.get(priority);
     }
 
     public TrakrPriority getPriorityForName(String priorityName) {
-        return priorityMap.get(priorityName);
+        return reversePriorityMap.get(priorityName);
     }
 
     public abstract TrakrContent.Type getContentType();

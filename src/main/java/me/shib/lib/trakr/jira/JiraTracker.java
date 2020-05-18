@@ -11,7 +11,7 @@ public final class JiraTracker extends Trakr {
 
     private final JiraClient client;
 
-    public JiraTracker(Connection connection, Map<String, TrakrPriority> priorityMap) throws TrakrException {
+    public JiraTracker(Connection connection, Map<TrakrPriority, String> priorityMap) throws TrakrException {
         super(connection, priorityMap);
         BasicCredentials credentials = new BasicCredentials(connection.getUsername(), connection.getPassword());
         try {
