@@ -68,8 +68,8 @@ public abstract class Trakr {
     public abstract List<TrakrIssue> searchTrakrIssues(TrakrQuery query) throws TrakrException;
 
     public enum Type {
-        Jira(JiraTracker.class),
-        FreshRelease(FreshReleaseTracker.class);
+        JIRA(JiraTracker.class),
+        FRESHRELEASE(FreshReleaseTracker.class);
 
         private final Class<? extends Trakr> trackerClass;
 
