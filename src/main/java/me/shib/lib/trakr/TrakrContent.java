@@ -17,6 +17,9 @@ public class TrakrContent {
     }
 
     private static String convertToHTML(String commonmarkText) {
+        if (commonmarkText == null) {
+            return "";
+        }
         Node document = parser.parse(commonmarkText);
         return renderer.render(document);
     }
@@ -28,6 +31,9 @@ public class TrakrContent {
     }
 
     public static String simplifyContent(String content, Type type) {
+        if (content == null) {
+            return "";
+        }
         switch (type) {
             case Markdown:
                 return content;
