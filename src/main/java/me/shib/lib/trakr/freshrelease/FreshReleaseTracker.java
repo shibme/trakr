@@ -1,6 +1,6 @@
 package me.shib.lib.trakr.freshrelease;
 
-import com.freshrelease.api.*;
+import com.freshworks.freshrelease.api.*;
 import me.shib.lib.trakr.*;
 
 import java.io.IOException;

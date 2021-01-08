@@ -113,9 +113,9 @@
 
     <repositories>
         <repository>
-            <id>github-freshrelease-java-client</id>
-            <name>GitHub - Freshrelease Java Client - Maven Repo</name>
-            <url>https://maven.pkg.github.com/freshdesk/freshrelease-java-client</url>
+            <id>bintray-freshworks-maven</id>
+            <name>Freshworks Bintray Maven Repo</name>
+            <url>https://dl.bintray.com/freshworks/maven</url>
         </repository>
         <repository>
             <id>${project.distributionManagement.repository.id}</id>
@@ -144,9 +144,9 @@
             <version>0.1.1</version>
         </dependency>
         <dependency>
-            <groupId>com.freshrelease</groupId>
-            <artifactId>freshrelease-java-client</artifactId>
-            <version>1.1.1</version>
+            <groupId>com.freshworks.freshrelease</groupId>
+            <artifactId>minimal-freshrelease-java-client</artifactId>
+            <version>0.1.0</version>
         </dependency>
     </dependencies>
 
