@@ -145,7 +145,7 @@
         </dependency>
         <dependency>
             <groupId>com.freshworks.freshrelease</groupId>
-            <artifactId>minimal-freshrelease-java-client</artifactId>
+            <artifactId>freshrelease-java-client</artifactId>
             <version>0.1.0</version>
         </dependency>
     </dependencies>
