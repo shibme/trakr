@@ -1,7 +1,7 @@
 package me.shib.lib.trakr.freshrelease;
 
 
-import com.freshworks.freshrelease.api.Comment;
+import me.shib.lib.freshrelease.api.Comment;
 import me.shib.lib.trakr.TrakrComment;
 
 import java.util.Date;

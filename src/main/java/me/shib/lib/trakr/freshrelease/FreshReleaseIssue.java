@@ -1,8 +1,8 @@
 package me.shib.lib.trakr.freshrelease;
 
-import com.freshworks.freshrelease.api.Comment;
-import com.freshworks.freshrelease.api.FreshReleaseException;
-import com.freshworks.freshrelease.api.Issue;
+import me.shib.lib.freshrelease.api.Comment;
+import me.shib.lib.freshrelease.api.FreshReleaseException;
+import me.shib.lib.freshrelease.api.Issue;
 import me.shib.lib.trakr.*;
 
 import java.util.ArrayList;
