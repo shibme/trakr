@@ -3,7 +3,7 @@ package me.shib.lib.trakr.jira;
 import me.shib.java.lib.jiraclient.User;
 import me.shib.lib.trakr.TrakrUser;
 
-public class JiraUser implements TrakrUser {
+public class JiraUser extends TrakrUser {
 
     private final User user;
 

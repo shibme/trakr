@@ -1,9 +1,14 @@
 package me.shib.lib.trakr;
 
-public interface TrakrUser {
-    String getName();
+public abstract class TrakrUser {
+    public abstract String getName();
 
-    String getUsername();
+    public abstract String getUsername();
 
-    String getEmail();
+    public abstract String getEmail();
+
+    @Override
+    public String toString() {
+        return getName() + " [" + getEmail() + "]";
+    }
 }

@@ -3,7 +3,7 @@ package me.shib.lib.trakr.freshrelease;
 import me.shib.lib.freshrelease.api.User;
 import me.shib.lib.trakr.TrakrUser;
 
-public final class FreshReleaseUser implements TrakrUser {
+public final class FreshReleaseUser extends TrakrUser {
 
     private final User user;
 
