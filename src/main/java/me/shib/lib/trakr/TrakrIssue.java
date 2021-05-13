@@ -50,6 +50,10 @@ public abstract class TrakrIssue {
 
     @Override
     public String toString() {
-        return getKey();
+        return getKey() + " [" + getType() + "]:" +
+                "\nTitle:\t" + getTitle() +
+                "\nStatus:\t" + getStatus() +
+                "\nPriority:\t" + getPriority() +
+                "\nAssignee:\t" + getAssignee();
     }
 }
