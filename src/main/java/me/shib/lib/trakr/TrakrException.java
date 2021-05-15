@@ -6,6 +6,6 @@ public class TrakrException extends Exception {
     }
 
     public TrakrException(Exception e) {
-        super(e.getMessage(), e.getCause());
+        super(e);
     }
 }
