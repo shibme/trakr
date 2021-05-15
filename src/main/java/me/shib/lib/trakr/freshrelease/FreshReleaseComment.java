@@ -10,8 +10,15 @@ public final class FreshReleaseComment implements TrakrComment {
 
     private final Comment comment;
 
-    FreshReleaseComment(Comment comment) {
+    private FreshReleaseComment(Comment comment) {
         this.comment = comment;
+    }
+
+    static FreshReleaseComment getInstance(Comment comment) {
+        if (comment == null) {
+            return null;
+        }
+        return new FreshReleaseComment(comment);
     }
 
     @Override

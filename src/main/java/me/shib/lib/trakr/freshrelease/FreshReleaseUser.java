@@ -7,8 +7,15 @@ public final class FreshReleaseUser extends TrakrUser {
 
     private final User user;
 
-    FreshReleaseUser(User user) {
+    private FreshReleaseUser(User user) {
         this.user = user;
+    }
+
+    static FreshReleaseUser getInstance(User user) {
+        if (user == null) {
+            return null;
+        }
+        return new FreshReleaseUser(user);
     }
 
     @Override

@@ -9,8 +9,15 @@ public class JiraComment implements TrakrComment {
 
     private final Comment comment;
 
-    JiraComment(Comment comment) {
+    private JiraComment(Comment comment) {
         this.comment = comment;
+    }
+
+    static JiraComment getInstance(Comment comment) {
+        if (comment == null) {
+            return null;
+        }
+        return new JiraComment(comment);
     }
 
     @Override

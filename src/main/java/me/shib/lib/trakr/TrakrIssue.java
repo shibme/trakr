@@ -50,10 +50,16 @@ public abstract class TrakrIssue {
 
     @Override
     public String toString() {
-        return getKey() + " [" + getType() + "]:" +
-                "\nTitle:\t" + getTitle() +
-                "\nStatus:\t" + getStatus() +
-                "\nPriority:\t" + getPriority() +
-                "\nAssignee:\t" + getAssignee();
+        StringBuilder issueDetail = new StringBuilder();
+        issueDetail.append(getKey()).append(" [").append(getType()).append("]:")
+                .append("\nTitle\t: ").append(getTitle())
+                .append("\nStatus\t: ").append(getStatus());
+        if (getPriority() != null) {
+            issueDetail.append("\nPriority\t: ").append(getPriority());
+        }
+        if (getAssignee() != null) {
+            issueDetail.append("\nAssignee\t: ").append(getAssignee());
+        }
+        return issueDetail.toString();
     }
 }

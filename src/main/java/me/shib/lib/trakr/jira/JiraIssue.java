@@ -90,19 +90,22 @@ public class JiraIssue extends TrakrIssue {
 
     @Override
     public TrakrUser getReporter() {
-        return new JiraUser(issue.getReporter());
+        return JiraUser.getInstance(issue.getReporter());
     }
 
     @Override
     public TrakrUser getAssignee() {
-        return new JiraUser(issue.getAssignee());
+        return JiraUser.getInstance(issue.getAssignee());
     }
 
     @Override
     public List<TrakrUser> getSubscribers() {
         List<TrakrUser> subscribers = new ArrayList<>();
         for (User user : issue.getWatches().getWatchers()) {
-            subscribers.add(new JiraUser(user));
+            JiraUser jiraUser = JiraUser.getInstance(user);
+            if (jiraUser != null) {
+                subscribers.add(jiraUser);
+            }
         }
         return subscribers;
     }
@@ -121,7 +124,10 @@ public class JiraIssue extends TrakrIssue {
     public List<TrakrComment> getComments() {
         List<TrakrComment> comments = new ArrayList<>();
         for (Comment comment : issue.getComments()) {
-            comments.add(new JiraComment(comment));
+            JiraComment jiraComment = JiraComment.getInstance(comment);
+            if (jiraComment != null) {
+                comments.add(jiraComment);
+            }
         }
         return comments;
     }
@@ -129,7 +135,7 @@ public class JiraIssue extends TrakrIssue {
     @Override
     public TrakrComment addComment(TrakrContent comment) throws TrakrException {
         try {
-            return new JiraComment(issue.addComment(comment.getJiraContent()));
+            return JiraComment.getInstance(issue.addComment(comment.getJiraContent()));
         } catch (JiraException e) {
             throw new TrakrException(e.getMessage());
         }

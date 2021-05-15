@@ -7,8 +7,15 @@ public class JiraUser extends TrakrUser {
 
     private final User user;
 
-    JiraUser(User user) {
+    private JiraUser(User user) {
         this.user = user;
+    }
+
+    static JiraUser getInstance(User user) {
+        if (user == null) {
+            return null;
+        }
+        return new JiraUser(user);
     }
 
     @Override

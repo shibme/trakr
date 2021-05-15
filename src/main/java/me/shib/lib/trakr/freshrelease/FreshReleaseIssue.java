@@ -103,7 +103,7 @@ public final class FreshReleaseIssue extends TrakrIssue {
     @Override
     public TrakrUser getReporter() {
         if (reporter == null) {
-            reporter = new FreshReleaseUser(issue.getReporter());
+            reporter = FreshReleaseUser.getInstance(issue.getReporter());
         }
         return reporter;
     }
@@ -111,7 +111,7 @@ public final class FreshReleaseIssue extends TrakrIssue {
     @Override
     public TrakrUser getAssignee() {
         if (assignee == null) {
-            assignee = new FreshReleaseUser(issue.getOwner());
+            assignee = FreshReleaseUser.getInstance(issue.getOwner());
         }
         return this.assignee;
     }
@@ -150,7 +150,10 @@ public final class FreshReleaseIssue extends TrakrIssue {
                 List<Comment> comments = issue.getComments();
                 if (null != comments) {
                     for (Comment comment : comments) {
-                        this.comments.add(new FreshReleaseComment(comment));
+                        FreshReleaseComment freshReleaseComment = FreshReleaseComment.getInstance(comment);
+                        if (freshReleaseComment != null) {
+                            this.comments.add(freshReleaseComment);
+                        }
                     }
                 }
             } catch (FreshReleaseException e) {
@@ -163,7 +166,7 @@ public final class FreshReleaseIssue extends TrakrIssue {
     @Override
     public TrakrComment addComment(TrakrContent comment) throws TrakrException {
         try {
-            return new FreshReleaseComment(issue.addComment(comment.getHtmlContent()));
+            return FreshReleaseComment.getInstance(issue.addComment(comment.getHtmlContent()));
         } catch (FreshReleaseException e) {
             throw new TrakrException(e);
         }
