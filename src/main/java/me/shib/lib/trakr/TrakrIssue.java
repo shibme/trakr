@@ -52,8 +52,8 @@ public abstract class TrakrIssue {
     public String toString() {
         StringBuilder issueDetail = new StringBuilder();
         issueDetail.append(getKey()).append(" [").append(getType()).append("]:")
-                .append("\nTitle\t: ").append(getTitle())
-                .append("\nStatus\t: ").append(getStatus());
+                .append("\nTitle\t\t: ").append(getTitle())
+                .append("\nStatus\t\t: ").append(getStatus());
         if (getPriority() != null) {
             issueDetail.append("\nPriority\t: ").append(getPriority());
         }
