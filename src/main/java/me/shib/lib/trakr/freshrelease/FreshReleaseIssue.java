@@ -80,7 +80,9 @@ public final class FreshReleaseIssue extends TrakrIssue {
     @Override
     public TrakrPriority getPriority() {
         if (priority == null) {
-            priority = tracker.getPriorityForName(issue.getPriority().getLabel());
+            if (issue.getPriority() != null) {
+                priority = tracker.getPriorityForName(issue.getPriority().getLabel());
+            }
         }
         return priority;
     }
