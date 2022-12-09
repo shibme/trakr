@@ -7,8 +7,8 @@ import org.commonmark.renderer.html.HtmlRenderer;
 
 public class TrakrContent {
 
-    private static final transient Parser parser = Parser.builder().build();
-    private static final transient HtmlRenderer renderer = HtmlRenderer.builder().build();
+    private static final Parser parser = Parser.builder().build();
+    private static final HtmlRenderer renderer = HtmlRenderer.builder().build();
 
     private final String markdownText;
 

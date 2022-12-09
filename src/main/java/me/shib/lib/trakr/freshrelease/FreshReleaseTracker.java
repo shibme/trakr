@@ -11,7 +11,7 @@ import java.util.Map;
 
 public final class FreshReleaseTracker extends Trakr {
 
-    private static final transient Map<TrakrQuery.Operator, Query.Operator> operatorMap;
+    private static final Map<TrakrQuery.Operator, Query.Operator> operatorMap;
 
     static {
         operatorMap = new HashMap<>();
